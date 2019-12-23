@@ -2,7 +2,7 @@ include config.mk
 
 LIBC_DIR=libc
 C_SOURCES=$(patsubst %.c, %.o, $(shell find $(LIBC_DIR) | grep "\.c"))
-INCLUDES=-Ilibc/include
+INCLUDES=-I$(LIBC_DIR)/include
 
 all: $(TARGET)
 
@@ -18,6 +18,12 @@ dist: clean
 	@rm -rf $(TARGET)
 	@gzip $(TARGET).tar
 	@echo DIST
+
+install: $(TARGET)
+	@cp -r $(LIBC_DIR)/include $(DESTDIR)$(PREFIX)/include/swerve
+	@mkdir -p $(DESTDIR)$(PREFIX)/lib/swerve
+	@cp $(TARGET) $(DESTDIR)$(PREFIX)/lib/swerve
+	@echo INSTALL
 
 $(TARGET): $(C_SOURCES)
 	@$(AR) rcs $@ $^

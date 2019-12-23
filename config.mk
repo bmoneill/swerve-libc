@@ -1,6 +1,13 @@
 VERSION = 0.01a-dev
 
 # user configurable options
+
+ARCH = i386
+ARCH_PREFIX = $(ARCH)-swerve
+
+
+PREFIX = "/usr/local"
+
 CC=$(ARCH_PREFIX)-gcc
 LD=$(CC)
 AR=$(ARCH_PREFIX)-ar
