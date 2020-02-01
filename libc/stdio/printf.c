@@ -48,6 +48,7 @@ int printf(const char * restrict format, ...)
 		}
 
 		char c;
+		int n;
 		char *str;
 		size_t len;
 		if (checking) {
@@ -73,6 +74,14 @@ int printf(const char * restrict format, ...)
 						return -1;
 
 					written += len;
+					break;
+				case 'd':
+					n = va_arg(parameters, int);
+					while (n > 10) {
+						putchar((n % 10) + 0x30);
+						n = n / 10;
+					}
+					putchar(n + 0x30);
 					break;
 				case '%':
 					print("%", 1);

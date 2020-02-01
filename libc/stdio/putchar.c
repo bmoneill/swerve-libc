@@ -21,11 +21,16 @@
 
 #ifdef __is_libk
 #include <sys/tty.h>
-static int current_tty = 1;
+static int current_tty = 0;
+
+int getty(void)
+{
+	return current_tty + 1;
+}
 
 void setty(int new_tty)
 {
-	current_tty = new_tty;
+	current_tty = new_tty - 1;
 }
 #endif
 
@@ -45,7 +50,7 @@ int putchar(int ic)
 	char c;
 #ifdef __is_libk
 	c = (char) ic;
-	((Device *)ttys[current_tty])->write((Device *) ttys[current_tty], &c, sizeof(c));
+	((Device *) ttys[current_tty])->write((Device *) ttys[current_tty], &c, sizeof(c));
 #else
 	/* TODO: syscall to implement putchar for userspace */
 #endif

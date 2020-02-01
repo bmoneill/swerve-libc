@@ -25,6 +25,7 @@
 #define EOF (-1)
 
 #ifdef __is_libk
+int getty(void);
 void setty(int new_tty);
 #endif
  
