@@ -19,6 +19,9 @@
 
 #include <string.h>
 
+/* 
+ * strcpy(3p) implementation
+ */
 char *strcpy(char * restrict dst, const char * restrict src)
 {
 	strncpy(dst, src, strlen(src));

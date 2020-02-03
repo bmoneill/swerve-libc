@@ -19,6 +19,9 @@
 
 #include <string.h>
  
+/* 
+ * memmove(3p) implementation
+ */
 void* memmove(void* dstptr, const void* srcptr, size_t size) {
 	unsigned char* dst = (unsigned char*) dstptr;
 	const unsigned char* src = (const unsigned char*) srcptr;

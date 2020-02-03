@@ -19,6 +19,9 @@
 
 #include <string.h>
 
+/* 
+ * memcmp(3p) implementation
+ */
 int memcmp(const void *aptr, const void *bptr, size_t size)
 {
 	const unsigned char *a = (const unsigned char *) aptr;

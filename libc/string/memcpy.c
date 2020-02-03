@@ -19,6 +19,9 @@
 
 #include <string.h>
 
+/* 
+ * memcpy(3p) implementation
+ */
 void *memcpy(void * restrict dstptr, const void * restrict srcptr, size_t size)
 {
 	unsigned char *dst = (unsigned char *) dstptr;

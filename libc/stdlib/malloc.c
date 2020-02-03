@@ -31,6 +31,10 @@ struct MemNode {
 struct MemNode *top;
 
 #ifdef __is_libk
+/* 
+ * initialize memory allocator. if this isn't done before a malloc(),
+ * bad things will probably happen, so beware hackers.
+ */
 void mem_init(void)
 {
 	top = (struct MemNode *) KERN_MEMORY_BASE;
@@ -42,7 +46,11 @@ void mem_init(void)
 }
 #endif
 
-/* TODO check for overflow of kernel memory */
+/* 
+ * malloc(3p) implementation
+ * TODO safety check for overflow of kernel memory
+ * TODO base off a memory map for safety on actual hardware (may differ)
+ */
 void *malloc(size_t size)
 {
 	struct MemNode *node = top;
@@ -62,6 +70,9 @@ void *malloc(size_t size)
 	return node->ptr;
 }
 
+/* 
+ * free(3p) implementation
+ */
 void free(void *mem)
 {
 	struct MemNode *node = top;

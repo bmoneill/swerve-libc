@@ -32,6 +32,14 @@ static int print(const char *data, size_t len)
 	return 1;
 }
 
+/*
+ * Partial implementation of printf(3p)
+ *
+ * TODO numbers for hex output
+ * TODO octal output
+ * FIXME use algorithm to figure out exact hex string length
+ * FIXME decimal output is broken, opposite endian
+ */
 int printf(const char * restrict format, ...)
 {
 	va_list parameters;

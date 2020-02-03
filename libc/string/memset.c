@@ -19,6 +19,9 @@
 
 #include <string.h>
 
+/* 
+ * memset(3p) implementation
+ */
 void *memset(void *bufptr, int value, size_t size)
 {
 	unsigned char *buf = (unsigned char *) bufptr;

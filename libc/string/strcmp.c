@@ -19,6 +19,9 @@
 
 #include <string.h>
 
+/* 
+ * strcmp(3p) implementation
+ */
 int strcmp(const char *s1, const char *s2)
 {
 	int i;

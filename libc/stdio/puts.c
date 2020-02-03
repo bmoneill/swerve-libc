@@ -19,6 +19,10 @@
 
 #include <stdio.h>
 
+/* 
+ * lazy puts(3p) implementation
+ * FIXME is calling printf() bloat?
+ */
 int puts(const char *str)
 {
 	return printf("%s\n", str);
