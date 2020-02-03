@@ -48,7 +48,7 @@ int printf(const char * restrict format, ...)
 		}
 
 		char c;
-		int n;
+		int i, n;
 		char *str;
 		size_t len;
 		if (checking) {
@@ -85,6 +85,25 @@ int printf(const char * restrict format, ...)
 					break;
 				case '%':
 					print("%", 1);
+				case 'x':
+					i = 23;
+					n = va_arg(parameters, int);
+					str = malloc(24);
+					str[i] = '\0';
+					i--;
+					while (n > 16) {
+						if ((n % 16) > 9)
+							str[i] = ((n % 16) - 9) + 0x40;
+						else
+							str[i] = ((n % 16) - 9) + 0x30;
+						n = n / 16;
+						i--;
+					}
+					if (n > 9)
+						str[i] = (n - 9) + 0x40;
+					else
+						str[i] = n + 0x30;
+					puts(&(str[i]));
 				default: break;
 			}
 		} else {
