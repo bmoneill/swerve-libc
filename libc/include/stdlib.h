@@ -23,10 +23,10 @@
 #include <sys/cdefs.h>
 #include <stddef.h>
 
-#define PROC_MEMORY_BASE    0xC0000000
-#define PROC_MEMORY_CEILING 0xFFFFFED8
-#define KERN_MEMORY_BASE    0x10000
-#define KERN_MEMORY_CEILING 0xBFFFFFFF
+#define PROC_MEMORY_BASE    0xC000
+#define PROC_MEMORY_CEILING 0xFFFF
+#define KERN_MEMORY_BASE    0x1000
+#define KERN_MEMORY_CEILING 0xBFFF
  
 #ifdef __is_libk
 void mem_init(void);

@@ -36,25 +36,29 @@ void mem_init(void)
 	top = (struct MemNode *) KERN_MEMORY_BASE;
 	memset(top, 0, sizeof(struct MemNode));
 	top->ptr = (void *) PROC_MEMORY_BASE;
+	top->size = 1;
+	top->free = 0;
+	top->next = NULL;
 }
 #endif
 
+/* TODO check for overflow of kernel memory */
 void *malloc(size_t size)
 {
 	struct MemNode *node = top;
 
 	while (node->next != NULL) {
 		node = node->next;
-		if (node->size >= size) {
+		if (node->size >= size && node->free)
 			return node->ptr;
-		}
 	}
 
-	node->next = (struct MemNode *) node->ptr + sizeof(struct MemNode);
+	node->next = (struct MemNode *) (node + sizeof(struct MemNode));
 	node->next->ptr = (void *) (((size_t) node->ptr) + node->size);
 	node = node->next;
-	memset(node, 0, sizeof(struct MemNode));
 	node->size = size;
+	node->free = 0;
+	node->next = NULL;
 	return node->ptr;
 }
 
@@ -64,4 +68,5 @@ void free(void *mem)
 
 	while (node->ptr != mem && node != NULL)
 		node = node->next;
+	node->free = 1;
 }
