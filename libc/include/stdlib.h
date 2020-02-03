@@ -23,6 +23,7 @@
 #include <sys/cdefs.h>
 #include <stddef.h>
 
+/* TODO memory mapping stuff */
 #define PROC_MEMORY_BASE    0xC000
 #define PROC_MEMORY_CEILING 0xFFFF
 #define KERN_MEMORY_BASE    0x1000
