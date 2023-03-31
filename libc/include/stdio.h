@@ -18,7 +18,7 @@
 */
 
 #ifndef _STDIO_H
-#define _STDIO_H 1
+#define _STDIO_H
 
 #include <sys/cdefs.h>
  

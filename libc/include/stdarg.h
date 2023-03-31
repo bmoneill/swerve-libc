@@ -18,7 +18,7 @@
 */
 
 #ifndef _STDARG_H
-#define _STDARG_H 1
+#define _STDARG_H
 
 #define va_start(v,l) __builtin_va_start(v,l)
 #define va_end(v) __builtin_va_end(v)
