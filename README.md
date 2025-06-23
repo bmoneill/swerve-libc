@@ -1,12 +1,11 @@
 # swerve libc
 
-The standard C library for swerve.
+The standard C library for [swerve](https://github.com/boneill02/swerve).
 
 ## Prerequisites for building
 
-* [GNU Binutils cross-compiled for
-  swerve](https://gitlab.com/swegbun/swerve-binutils)
-* [GCC cross-compiled for swerve](https://gitlab.com/swegbun/swerve-gcc)
+* GNU Binutils cross-compiled for swerve
+* GCC cross-compiled for swerve
 * GNU Make
 
 ## Building
