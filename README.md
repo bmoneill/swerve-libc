@@ -1,6 +1,6 @@
 # swerve libc
 
-The standard C library for [swerve](https://github.com/boneill02/swerve).
+The standard C library for [swerve](https://github.com/bmoneill/swerve).
 
 ## Prerequisites for building
 
